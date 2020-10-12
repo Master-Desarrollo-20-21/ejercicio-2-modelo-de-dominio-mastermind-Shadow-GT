@@ -1,0 +1,33 @@
+@startuml
+
+class Game
+class Turn 
+class Player
+class scramblerPlayer
+class playerMarket
+class board
+class winner
+
+
+class combinationSecret
+class propusedCombination
+class combination
+class position
+
+
+Game *-> board
+Game *-> Player
+board -> combinationSecret
+combinationSecret -|> combination
+combination *-> position
+
+Player <|- scramblerPlayer
+Player <|- playerMarket
+playerMarket -> Turn
+Turn -> propusedCombination
+propusedCombination -|> combination
+winner -|> combination  
+board o-> winner
+scramblerPlayer -|> combinationSecret
+
+@enduml
